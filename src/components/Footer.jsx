@@ -46,10 +46,10 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
           <ul className="text-[#e6d9cd] text-sm space-y-2">
-            <li>Email: support@Scooby.com</li>
-            <li>Phone: +91 98765 43210</li>
+            <li>Email: nethmalapaypal@gamail.com</li>
+            <li>Phone: +94 768692919</li>
             <li>Hours: Mon - Sat, 9AM - 7PM</li>
-            <li>Location: Navi Mumbai, India</li>
+            <li>Location: Colombo, Sri Lanaka</li>
           </ul>
         </div>
       </div>
