@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
+import Animation from "./Animation";
 
 const testimonials = [
   {
@@ -54,16 +55,22 @@ const Testimonials = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-14">
-          <p className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/90 border border-[#ffd5bf] text-sm font-semibold text-[#c86436] mb-4">
-            Trusted Reviews
-          </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#5A3B1F] mb-4">
-            What Pet Parents Say
-          </h2>
-          <p className="text-[#7c5a3b] max-w-2xl mx-auto leading-relaxed">
-            Real stories from happy customers who experienced Scooby care with
-            love, safety, and reliability.
-          </p>
+          <Animation variant="dissolveDown">
+            <p className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/90 border border-[#ffd5bf] text-sm font-semibold text-[#c86436] mb-4">
+              Trusted Reviews
+            </p>
+          </Animation>
+          <Animation variant="dissolveUp" delay={60}>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#5A3B1F] mb-4">
+              What Pet Parents Say
+            </h2>
+          </Animation>
+          <Animation variant="dissolveUp" delay={120}>
+            <p className="text-[#7c5a3b] max-w-2xl mx-auto leading-relaxed">
+              Real stories from happy customers who experienced Scooby care with
+              love, safety, and reliability.
+            </p>
+          </Animation>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
@@ -71,41 +78,41 @@ const Testimonials = () => {
             const current = testimonials[(index + activeIndex) % testimonials.length];
 
             return (
-            <div
-              key={index}
-              className="group relative rounded-2xl border border-[#ecd8c8] bg-white/95 backdrop-blur-sm p-7 shadow-[0_10px_30px_rgba(125,66,35,0.10)] hover:-translate-y-1.5 hover:shadow-[0_16px_34px_rgba(125,66,35,0.18)] transition-all duration-300"
-            >
-              <FaQuoteLeft className="text-[#e3c8b2] text-3xl absolute top-5 right-5 opacity-60" />
+              <Animation key={index} variant="liftIn" delay={index * 100}>
+                <div className="group relative rounded-2xl border border-[#ecd8c8] bg-white/95 backdrop-blur-sm p-7 shadow-[0_10px_30px_rgba(125,66,35,0.10)] hover:-translate-y-1.5 hover:shadow-[0_16px_34px_rgba(125,66,35,0.18)] transition-all duration-300">
+                  <FaQuoteLeft className="text-[#e3c8b2] text-3xl absolute top-5 right-5 opacity-60" />
 
-              <div className="flex text-[#f3a63a] gap-1 mb-4">
-                <FaStar />
-                <FaStar />
-                <FaStar />
-                <FaStar />
-                <FaStar />
-              </div>
+                  <div className="flex text-[#f3a63a] gap-1 mb-4">
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                  </div>
 
-              <p className="text-[#5e3e28] leading-relaxed mb-6">
-                "{current.feedback}"
-              </p>
-
-              <div className="flex items-center gap-3">
-                <img
-                  src={current.image}
-                  alt={`${current.name} pet`}
-                  className="w-11 h-11 rounded-full object-cover border border-[#ffd8c4] shadow-sm"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
-                <div>
-                  <p className="text-[#5A3B1F] font-semibold leading-tight">
-                    {current.name}
+                  <p className="text-[#5e3e28] leading-relaxed mb-6">
+                    "{current.feedback}"
                   </p>
-                  <p className="text-xs text-[#8d674a]">{current.role}</p>
+
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={current.image}
+                      alt={`${current.name} pet`}
+                      className="w-11 h-11 rounded-full object-cover border border-[#ffd8c4] shadow-sm"
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div>
+                      <p className="text-[#5A3B1F] font-semibold leading-tight">
+                        {current.name}
+                      </p>
+                      <p className="text-xs text-[#8d674a]">{current.role}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          )})}
+              </Animation>
+            );
+          })}
         </div>
       </div>
     </section>

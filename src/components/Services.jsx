@@ -1,6 +1,7 @@
 import React from "react";
 import { GiDogHouse, GiSittingDog, GiDogBowl } from "react-icons/gi";
 import { FaUserMd, FaPaw, FaTruck } from "react-icons/fa";
+import Animation from "./Animation";
 
 const petServices = [
   {
@@ -43,38 +44,43 @@ const Services = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <p className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/80 border border-[#ffd5bf] text-sm font-semibold text-[#c86436] mb-4">
-            What We Offer
-          </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#5a331f] mb-4">
-            Our Pet Services
-          </h2>
-          <p className="text-[#8d674a] max-w-2xl mx-auto leading-relaxed">
-            Complete pet care solutions designed for comfort, health, and
-            happiness. Every service is crafted to give your furry friend the
-            best experience.
-          </p>
+          <Animation variant="dissolveDown">
+            <p className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/80 border border-[#ffd5bf] text-sm font-semibold text-[#c86436] mb-4">
+              What We Offer
+            </p>
+          </Animation>
+          <Animation variant="dissolveUp" delay={60}>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#5a331f] mb-4">
+              Our Pet Services
+            </h2>
+          </Animation>
+          <Animation variant="dissolveUp" delay={120}>
+            <p className="text-[#8d674a] max-w-2xl mx-auto leading-relaxed">
+              Complete pet care solutions designed for comfort, health, and
+              happiness. Every service is crafted to give your furry friend the
+              best experience.
+            </p>
+          </Animation>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
           {petServices.map((service, index) => (
-            <div
-              key={index}
-              className="group relative bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-[#ecd8c8] shadow-[0_10px_30px_rgba(125,66,35,0.10)] hover:-translate-y-1.5 hover:shadow-[0_16px_34px_rgba(125,66,35,0.18)] transition-all duration-300"
-            >
-              <span className="absolute top-4 right-4 text-xs font-bold text-[#d58a62] bg-[#fff3ec] border border-[#ffd9c5] rounded-full w-8 h-8 flex items-center justify-center">
-                {index + 1}
-              </span>
+            <Animation key={index} variant="liftIn" delay={index * 90}>
+              <div className="group relative bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-[#ecd8c8] shadow-[0_10px_30px_rgba(125,66,35,0.10)] hover:-translate-y-1.5 hover:shadow-[0_16px_34px_rgba(125,66,35,0.18)] transition-all duration-300">
+                <span className="absolute top-4 right-4 text-xs font-bold text-[#d58a62] bg-[#fff3ec] border border-[#ffd9c5] rounded-full w-8 h-8 flex items-center justify-center">
+                  {index + 1}
+                </span>
 
-              <div className="w-14 h-14 rounded-xl bg-[#fff2ea] border border-[#ffd8c4] text-[#a0522d] flex items-center justify-center mb-5 group-hover:bg-[#ffede3] transition-colors duration-300">
-                {service.icon}
+                <div className="w-14 h-14 rounded-xl bg-[#fff2ea] border border-[#ffd8c4] text-[#a0522d] flex items-center justify-center mb-5 group-hover:bg-[#ffede3] transition-colors duration-300">
+                  {service.icon}
+                </div>
+
+                <h3 className="text-xl font-bold text-[#5d3925] mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-[#6f5441] leading-relaxed">{service.desc}</p>
               </div>
-
-              <h3 className="text-xl font-bold text-[#5d3925] mb-2">
-                {service.title}
-              </h3>
-              <p className="text-[#6f5441] leading-relaxed">{service.desc}</p>
-            </div>
+            </Animation>
           ))}
         </div>
       </div>

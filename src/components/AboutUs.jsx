@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Animation from "./Animation";
 
 const CountUpNumber = ({ target, suffix = "", duration = 1600 }) => {
   const [count, setCount] = useState(0);
@@ -74,48 +75,62 @@ const AboutUs = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
-          <p className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/90 border border-[#ffd9c4] text-sm font-semibold text-[#c76539] mb-4">
-            Who We Are
-          </p>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-[#5A3B1F] leading-tight mb-6">
-            About Scooby
-          </h2>
+          <Animation variant="dissolveDown">
+            <p className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/90 border border-[#ffd9c4] text-sm font-semibold text-[#c76539] mb-4">
+              Who We Are
+            </p>
+          </Animation>
+          <Animation variant="dissolveRight" delay={60}>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-[#5A3B1F] leading-tight mb-6">
+              About Scooby
+            </h2>
+          </Animation>
 
-          <p className="text-[#6b4a2e] text-lg leading-relaxed mb-5">
-            At <span className="font-semibold">Scooby</span>, we believe pets
-            are family. We built a platform that delivers trusted, loving, and
-            professional pet care services right to your doorstep.
-          </p>
-          <p className="text-[#7d5b40] text-base leading-relaxed mb-8">
-            From grooming and vet consultations to healthy treats, we ensure
-            every pet gets the care they deserve. Our mission is simple: make
-            every pet feel healthy, happy, and loved.
-          </p>
+          <Animation variant="dissolveRight" delay={120}>
+            <p className="text-[#6b4a2e] text-lg leading-relaxed mb-5">
+              At <span className="font-semibold">Scooby</span>, we believe pets
+              are family. We built a platform that delivers trusted, loving, and
+              professional pet care services right to your doorstep.
+            </p>
+          </Animation>
+          <Animation variant="dissolveRight" delay={180}>
+            <p className="text-[#7d5b40] text-base leading-relaxed mb-8">
+              From grooming and vet consultations to healthy treats, we ensure
+              every pet gets the care they deserve. Our mission is simple: make
+              every pet feel healthy, happy, and loved.
+            </p>
+          </Animation>
 
           <div className="grid grid-cols-2 gap-4 max-w-md">
-            <div className="rounded-xl border border-[#ecd8c9] bg-white/90 p-4">
-              <CountUpNumber target={5000} suffix="+" />
-              <p className="text-sm text-[#7d5b40]">Happy Pets</p>
-            </div>
-            <div className="rounded-xl border border-[#ecd8c9] bg-white/90 p-4">
-              <CountUpNumber target={20} suffix="+" />
-              <p className="text-sm text-[#7d5b40]">Cities Covered</p>
-            </div>
+            <Animation variant="zoomIn" delay={220}>
+              <div className="rounded-xl border border-[#ecd8c9] bg-white/90 p-4">
+                <CountUpNumber target={5000} suffix="+" />
+                <p className="text-sm text-[#7d5b40]">Happy Pets</p>
+              </div>
+            </Animation>
+            <Animation variant="zoomIn" delay={300}>
+              <div className="rounded-xl border border-[#ecd8c9] bg-white/90 p-4">
+                <CountUpNumber target={20} suffix="+" />
+                <p className="text-sm text-[#7d5b40]">Cities Covered</p>
+              </div>
+            </Animation>
           </div>
         </div>
 
-        <div className="relative">
-          <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#ffd8c1] to-[#ffe8da] opacity-70 blur-md" />
-          <div className="relative h-[320px] md:h-[420px] w-full rounded-[2rem] border border-[#e8d7c8] bg-[#f8f5f2] p-3 shadow-[0_18px_45px_rgba(117,70,40,0.16)] overflow-hidden">
-            <img
-              src={aboutImages[currentImageIndex]}
-              alt="Dogs and cats"
-              className="h-full w-full rounded-[1.4rem] object-cover"
-              loading="lazy"
-              referrerPolicy="no-referrer"
-            />
+        <Animation variant="dissolveLeft" delay={120}>
+          <div className="relative">
+            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#ffd8c1] to-[#ffe8da] opacity-70 blur-md" />
+            <div className="relative h-[320px] md:h-[420px] w-full rounded-[2rem] border border-[#e8d7c8] bg-[#f8f5f2] p-3 shadow-[0_18px_45px_rgba(117,70,40,0.16)] overflow-hidden">
+              <img
+                src={aboutImages[currentImageIndex]}
+                alt="Dogs and cats"
+                className="h-full w-full rounded-[1.4rem] object-cover"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+            </div>
           </div>
-        </div>
+        </Animation>
       </div>
     </section>
   );
