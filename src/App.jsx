@@ -23,13 +23,27 @@ const App = () => {
       ) : (
         <>
           <Navbar />
-          <Hero />
-          <Services />
-          <WhyChooseUs />
-          <AboutUs />
-          <Testimonials />
-          <FAQsAccordion />
-          <Footer />
+          <section id="home" className="scroll-mt-24">
+            <Hero />
+          </section>
+          <section id="services" className="scroll-mt-24">
+            <Services />
+          </section>
+          <section id="why-us" className="scroll-mt-24">
+            <WhyChooseUs />
+          </section>
+          <section id="about" className="scroll-mt-24">
+            <AboutUs />
+          </section>
+          <section id="testimonials" className="scroll-mt-24">
+            <Testimonials />
+          </section>
+          <section id="faqs" className="scroll-mt-24">
+            <FAQsAccordion />
+          </section>
+          <section id="contact" className="scroll-mt-24">
+            <Footer />
+          </section>
         </>
       )}
     </>

@@ -17,8 +17,19 @@ const Navbar = () => {
     setMenu(!menu);
   };
 
+  const closeMenu = () => setMenu(false);
+  const handleNavClick = (event, targetId) => {
+    event.preventDefault();
+    const section = document.querySelector(targetId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setShowDropdown(false);
+    closeMenu();
+  };
+
   return (
-    <header className="bg-white shadow-md px-6 py-4 lg:px-20">
+    <header className="sticky top-0 z-50 bg-white shadow-md px-6 py-4 lg:px-20">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center gap-2 text-[#5c3a1e] font-bold text-2xl">
@@ -34,7 +45,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[#2f1e0e]">
-          <a href="/" className="hover:text-[#d1733d]">
+          <a href="#home" className="hover:text-[#d1733d]" onClick={(event) => handleNavClick(event, "#home")}>
             Home
           </a>
           <div
@@ -50,28 +61,25 @@ const Navbar = () => {
             </span>
             {showDropdown && (
               <div className="absolute top-6 left-0 bg-white shadow p-2 rounded z-10 w-40">
-                <a href="/" className="block px-2 py-1 hover:text-[#d1733d]">
-                  Grooming
+                <a href="#services" className="block px-2 py-1 hover:text-[#d1733d]" onClick={(event) => handleNavClick(event, "#services")}>
+                  All Services
                 </a>
-                <a href="/" className="block px-2 py-1 hover:text-[#d1733d]">
-                  Training
+                <a href="#why-us" className="block px-2 py-1 hover:text-[#d1733d]" onClick={(event) => handleNavClick(event, "#why-us")}>
+                  Why Us
                 </a>
-                <a href="/" className="block px-2 py-1 hover:text-[#d1733d]">
-                  Pet Sitting
+                <a href="#faqs" className="block px-2 py-1 hover:text-[#d1733d]" onClick={(event) => handleNavClick(event, "#faqs")}>
+                  FAQs
                 </a>
               </div>
             )}
           </div>
-          <a href="/" className="hover:text-[#d1733d]">
+          <a href="#about" className="hover:text-[#d1733d]" onClick={(event) => handleNavClick(event, "#about")}>
             About
           </a>
-          <a href="/" className="hover:text-[#d1733d]">
-            Shop
+          <a href="#testimonials" className="hover:text-[#d1733d]" onClick={(event) => handleNavClick(event, "#testimonials")}>
+            Reviews
           </a>
-          <a href="/" className="hover:text-[#d1733d]">
-            Blog
-          </a>
-          <a href="/" className="hover:text-[#d1733d]">
+          <a href="#contact" className="hover:text-[#d1733d]" onClick={(event) => handleNavClick(event, "#contact")}>
             Contact
           </a>
         </nav>
@@ -104,7 +112,7 @@ const Navbar = () => {
           menu ? "translate-x-0" : "-translate-x-full"
         } lg:hidden flex flex-col absolute bg-[#f5eee6] text-[#6B4226] left-0 top-16 font-semibold text-2xl pt-8 px-5 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
       >
-        <a href="/" className="hover:text-[#d1733d]">
+        <a href="#home" className="hover:text-[#d1733d]" onClick={(event) => handleNavClick(event, "#home")}>
           Home
         </a>
         <details className="group">
@@ -112,27 +120,24 @@ const Navbar = () => {
             Services
           </summary>
           <div className="pl-4 mt-1 flex flex-col gap-2.5">
-            <a href="/" className="hover:text-[#d1733d]">
-              Grooming
+            <a href="#services" className="hover:text-[#d1733d]" onClick={(event) => handleNavClick(event, "#services")}>
+              All Services
             </a>
-            <a href="/" className="hover:text-[#d1733d]">
-              Training
+            <a href="#why-us" className="hover:text-[#d1733d]" onClick={(event) => handleNavClick(event, "#why-us")}>
+              Why Us
             </a>
-            <a href="/" className="hover:text-[#d1733d]">
-              Pet Sitting
+            <a href="#faqs" className="hover:text-[#d1733d]" onClick={(event) => handleNavClick(event, "#faqs")}>
+              FAQs
             </a>
           </div>
         </details>
-        <a href="/" className="hover:text-[#d1733d]">
+        <a href="#about" className="hover:text-[#d1733d]" onClick={(event) => handleNavClick(event, "#about")}>
           About
         </a>
-        <a href="/" className="hover:text-[#d1733d]">
-          Shop
+        <a href="#testimonials" className="hover:text-[#d1733d]" onClick={(event) => handleNavClick(event, "#testimonials")}>
+          Reviews
         </a>
-        <a href="/" className="hover:text-[#d1733d]">
-          Blog
-        </a>
-        <a href="/" className="hover:text-[#d1733d]">
+        <a href="#contact" className="hover:text-[#d1733d]" onClick={(event) => handleNavClick(event, "#contact")}>
           Contact
         </a>
         <div className="flex gap-3 mt-2">
